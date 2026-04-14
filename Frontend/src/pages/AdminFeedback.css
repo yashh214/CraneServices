@@ -1,0 +1,15 @@
+/* AdminFeedback.css - Standard admin layout support */
+.admin-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.dashboard-main {
+  flex: 1;
+}
+.headd{
+  color: black;
+}
+
+/* Keep existing styles from admin.css, sidebar styles now in AdminSidebar.css */
+

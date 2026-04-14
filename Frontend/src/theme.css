@@ -1,0 +1,47 @@
+:root {
+  --dark-blue: #1E3A8A;
+  --orange: #F97316;
+  --light-gray-white: #F3F4F6;
+  --primary-dark:  #F97316;
+  --primary-blue: #0b5ee4;
+  --text-dark: #1F2937;
+  --text-light: #f8fafc;
+  --text-gray: #94a3b8;
+  --white: #ffffff;
+  --gradient-blue: linear-gradient(135deg, #1E3A8A 0%, #1e40af 100%);
+  --gradient-orange: linear-gradient(135deg, #F97316 0%, #fb923c 100%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Apply globally */
+body {
+  background: var(--light-gray-white);
+  color: var(--text-dark);
+  font-family: 'Inter', sans-serif;
+}
+
+.navbar, .dashboard-page {
+  background: var(--dark-blue);
+  color: var(--light-gray-white);
+}
+
+.gcs-btn-primary, .btn-primary {
+  background: var(--gradient-orange);
+  color: var(--dark-blue);
+}
+
+.nav-item.active {
+  background: rgba(249, 115, 22, 0.15);
+  color: var(--orange);
+}
+
+.stat-card, .action-card {
+  border-color: rgba(249, 115, 22, 0.1);
+}
+
+.fleet-capacity {
+  color: var(--orange);
+}
