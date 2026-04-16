@@ -1,0 +1,537 @@
+/* ========================================
+   Payment Home Theme CSS - Violet Glassmorphism
+   payy-* UNIQUE classes | Home.css inspired
+   No JS/API changes required | User updates classNames
+   ======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --payy-violet: #8B5CF6;
+  --payy-purple: #9333EA;
+  --payy-skyblue: #06B6D4;
+  --payy-violet-dark: #7C3AED;
+  --payy-purple-light: #C084FC;
+  --payy-skyblue-light: #7DD3FC;
+  --payy-bg-primary: #FAF5FF;
+  --payy-bg-light: #F8FAFC;
+  --payy-card-bg: rgba(255, 255, 255, 0.85);
+  --payy-white: #FFFFFF;
+  --payy-text-dark: #1E293B;
+  --payy-text-light: #F1F5F9;
+  --payy-text-gray: #64748B;
+  --payy-shadow-sm: 0 4px 20px rgba(139, 92, 246, 0.15);
+  --payy-shadow-md: 0 10px 40px rgba(147, 51, 234, 0.2);
+  --payy-shadow-lg: 0 20px 60px rgba(139, 92, 246, 0.25);
+  --payy-glow-violet: 0 0 25px rgba(139, 92, 246, 0.4);
+  --payy-glow-purple: 0 0 25px rgba(147, 51, 234, 0.4);
+  --payy-gradient-hero: linear-gradient(135deg, var(--payy-violet-dark) 0%, var(--payy-purple) 50%, var(--payy-skyblue) 100%);
+  --payy-gradient-glass: linear-gradient(135deg, rgba(139,92,246,0.1), rgba(147,51,234,0.05));
+  --payy-gradient-btn-primary: linear-gradient(135deg, var(--payy-violet) 0%, var(--payy-purple) 100%);
+  --payy-gradient-btn-secondary: linear-gradient(135deg, var(--payy-skyblue) 0%, var(--payy-skyblue-light) 100%);
+  --payy-gradient-success: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.payy-page {
+  font-family: 'Inter', sans-serif;
+  color: var(--payy-text-dark);
+  min-height: 100vh;
+  background: var(--payy-bg-primary);
+  padding: 40px 20px;
+  position: relative;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+.payy-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.06) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.payy-container {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  margin: 0 auto;
+  animation: fadeInUp 0.8s ease;
+}
+
+/* Back Button */
+.payy-back-btn {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  color: var(--payy-violet-dark);
+  padding: 12px 24px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  margin-bottom: 32px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.payy-back-btn:hover {
+  background: var(--payy-gradient-glass);
+  transform: translateY(-3px);
+  box-shadow: var(--payy-shadow-sm), var(--payy-glow-violet);
+  color: var(--payy-white);
+}
+
+/* Success Message */
+.payy-success {
+  background: var(--payy-gradient-success);
+  border-radius: 30px;
+  padding: 60px 40px;
+  text-align: center;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.3);
+  box-shadow: var(--payy-shadow-lg);
+  animation: popIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.payy-success-icon {
+  font-size: 72px;
+  margin-bottom: 24px;
+  filter: drop-shadow(0 10px 30px rgba(34, 197, 94, 0.4));
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
+
+.payy-success h2 {
+  font-size: clamp(28px, 5vw, 36px);
+  font-weight: 800;
+  color: var(--payy-white);
+  margin-bottom: 16px;
+  background: rgba(255,255,255,0.2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.payy-success p {
+  font-size: 18px;
+  color: rgba(255,255,255,0.95);
+  font-weight: 400;
+}
+
+/* Booking Summary */
+.payy-summary {
+  background: var(--payy-card-bg);
+  backdrop-filter: blur(20px);
+  border-radius: 25px;
+  padding: 32px;
+  border: 1px solid rgba(139,92,246,0.15);
+  margin-bottom: 28px;
+  box-shadow: var(--payy-shadow-sm);
+  transition: all 0.5s ease;
+}
+
+.payy-summary:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--payy-shadow-md), var(--payy-glow-purple);
+}
+
+.payy-summary h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--payy-violet-dark);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.payy-summary-details {
+  display: grid;
+  gap: 16px;
+}
+
+.payy-summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(139,92,246,0.1);
+  transition: all 0.3s ease;
+}
+
+.payy-summary-row:hover {
+  background: rgba(139,92,246,0.05);
+  padding-left: 12px;
+  border-radius: 8px;
+}
+
+.payy-summary-row:last-child {
+  border-bottom: none;
+}
+
+.payy-summary-label {
+  color: var(--payy-text-gray);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.payy-summary-value {
+  color: var(--payy-text-dark);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.payy-total-amount .payy-summary-value {
+  color: var(--payy-violet);
+  font-size: 18px;
+  font-weight: 800;
+  text-shadow: 0 2px 10px rgba(139,92,246,0.3);
+}
+
+/* Payment Section */
+.payy-section {
+  background: var(--payy-card-bg);
+  backdrop-filter: blur(20px);
+  border-radius: 25px;
+  padding: 32px;
+  border: 1px solid rgba(139,92,246,0.15);
+  margin-bottom: 28px;
+  box-shadow: var(--payy-shadow-sm);
+}
+
+.payy-section h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--payy-violet-dark);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.payy-options {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.payy-option {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  background: rgba(255,255,255,0.6);
+  border: 2px solid rgba(139,92,246,0.2);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.payy-option::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(139,92,246,0.1), transparent);
+  transition: left 0.6s;
+}
+
+.payy-option:hover::before {
+  left: 100%;
+}
+
+.payy-option:hover {
+  transform: translateY(-4px);
+  border-color: var(--payy-violet);
+  box-shadow: var(--payy-shadow-md);
+}
+
+.payy-option.payy-selected {
+  border-color: var(--payy-skyblue);
+  background: var(--payy-gradient-glass);
+  box-shadow: 0 0 0 1px rgba(6,182,212,0.3), var(--payy-shadow-lg);
+}
+
+.payy-radio {
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--payy-text-gray);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.payy-selected .payy-radio {
+  border-color: var(--payy-skyblue);
+  box-shadow: var(--payy-glow-skyblue);
+}
+
+.payy-selected .payy-radio::after {
+  content: '';
+  width: 12px;
+  height: 12px;
+  background: var(--payy-skyblue);
+  border-radius: 50%;
+  animation: dotPulse 0.6s ease;
+}
+
+@keyframes dotPulse {
+  0% { transform: scale(0); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.payy-icon {
+  font-size: 26px;
+  filter: drop-shadow(0 4px 12px rgba(139,92,246,0.3));
+}
+
+.payy-label {
+  flex: 1;
+}
+
+.payy-label span {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--payy-text-dark);
+}
+
+.payy-label small {
+  font-size: 13px;
+  color: var(--payy-text-gray);
+  font-weight: 500;
+}
+
+/* Payment Details */
+.payy-details {
+  margin-top: 24px;
+  padding: 24px;
+  background: rgba(248, 250, 252, 0.7);
+  border-radius: 16px;
+  border: 1px solid rgba(139,92,246,0.1);
+  animation: slideDown 0.5s ease;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.payy-upi-id {
+  color: var(--payy-text-gray);
+  font-size: 15px;
+  margin-bottom: 20px;
+  font-family: monospace;
+}
+
+.payy-upi-id strong {
+  color: var(--payy-violet);
+  font-weight: 700;
+  background: var(--payy-gradient-glass);
+  padding: 4px 12px;
+  border-radius: 8px;
+}
+
+.payy-apps {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.payy-app {
+  padding: 12px 24px;
+  background: var(--payy-gradient-btn-secondary);
+  color: var(--payy-violet-dark);
+  border: none;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: var(--payy-shadow-sm);
+}
+
+.payy-app:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: var(--payy-shadow-md), var(--payy-glow-skyblue);
+}
+
+/* Bank Details */
+.payy-bank-details h4 {
+  color: var(--payy-skyblue);
+  font-size: 16px;
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.payy-bank-details p {
+  color: var(--payy-text-dark);
+  font-size: 14px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.payy-bank-details .payy-note {
+  color: var(--payy-purple);
+  font-size: 13px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(147,51,234,0.2);
+  font-style: italic;
+}
+
+/* Info Texts */
+.payy-cod-info,
+.payy-card-info {
+  color: var(--payy-text-gray);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* Pay Button */
+.payy-pay-btn {
+  width: 100%;
+  padding: 20px;
+  background: var(--payy-gradient-btn-primary);
+  color: var(--payy-white);
+  border: none;
+  border-radius: 20px;
+  font-size: 20px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--payy-shadow-md);
+  margin-bottom: 24px;
+}
+
+.payy-pay-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: left 0.7s;
+}
+
+.payy-pay-btn:hover::before {
+  left: 100%;
+}
+
+.payy-pay-btn:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: var(--payy-shadow-lg), var(--payy-glow-violet);
+}
+
+.payy-pay-btn:disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.payy-processing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* Contact Info */
+.payy-contact-box {
+  margin-top: 24px;
+  padding: 20px 24px;
+  background: var(--payy-gradient-glass);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  text-align: center;
+  border: 1px solid rgba(139,92,246,0.2);
+}
+
+.payy-contact-box p {
+  font-size: 14px;
+  color: var(--payy-text-gray);
+  margin-bottom: 12px;
+}
+
+.payy-contact-box a {
+  color: var(--payy-skyblue);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.payy-contact-box a:hover {
+  color: var(--payy-violet);
+  text-shadow: var(--payy-glow-violet);
+}
+
+/* Keyframes */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes popIn {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .payy-container { padding: 0 16px; }
+  .payy-summary, .payy-section { padding: 24px; }
+  .payy-option { padding: 16px; }
+}
+
+@media (max-width: 480px) {
+  .payy-summary, .payy-section { padding: 20px; }
+  .payy-apps { flex-direction: column; }
+  .payy-app { width: 100%; }
+  .payy-pay-btn { padding: 18px; font-size: 18px; }
+}
+
+.payy-summary, .payy-section, .payy-details, .payy-option {
+  animation: fadeInUp 0.8s ease forwards;
+  opacity: 0;
+}
+
+.payy-summary { animation-delay: 0.1s; }
+.payy-section { animation-delay: 0.2s; }
+.payy-details { animation-delay: 0.3s; }

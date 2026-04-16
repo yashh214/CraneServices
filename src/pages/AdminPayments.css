@@ -1,0 +1,367 @@
+/* AdminPayments.css - Complete VPS Home Theme 
+   Glassmorphism | Gradients | Animations | Unique vps-admin-payments-* classes
+   Matches AdminDashboard/AdminCranes exactly */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* Exact Home.css theme */
+  --vps-violet: #8B5CF6;
+  --vps-purple: #9333EA;
+  --vps-skyblue: #06B6D4;
+  --vps-violet-dark: #7C3AED;
+  --vps-purple-light: #C084FC;
+  --vps-skyblue-light: #7DD3FC;
+  --vps-bg-primary: #FAF5FF;
+  --vps-bg-light: #F8FAFC;
+  --vps-card-bg: rgba(255, 255, 255, 0.85);
+  --vps-glass-bg: rgba(255, 255, 255, 0.9);
+  --vps-white: #FFFFFF;
+  --vps-text-dark: #1E293B;
+  --vps-text-light: #F1F5F9;
+  --vps-text-gray: #64748B;
+  --vps-shadow-sm: 0 4px 20px rgba(139, 92, 246, 0.15);
+  --vps-shadow-md: 0 10px 40px rgba(147, 51, 234, 0.2);
+  --vps-shadow-lg: 0 20px 60px rgba(139, 92, 246, 0.25);
+  --vps-glow-violet: 0 0 25px rgba(139, 92, 246, 0.4);
+  --vps-glow-purple: 0 0 25px rgba(147, 51, 234, 0.4);
+  --gradient-hero: linear-gradient(135deg, var(--vps-violet-dark) 0%, var(--vps-purple) 50%, var(--vps-skyblue) 100%);
+  --gradient-primary: linear-gradient(135deg, var(--vps-violet) 0%, var(--vps-purple) 100%);
+  --gradient-secondary: linear-gradient(135deg, var(--vps-skyblue) 0%, var(--vps-skyblue-light) 100%);
+  --gradient-glass: linear-gradient(135deg, rgba(139,92,246,0.1), rgba(147,51,234,0.05));
+}
+
+.vps-admin-payments-page {
+  min-height: 100vh;
+  background: var(--vps-bg-primary);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+.admin-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.vps-admin-payments-main {
+  flex: 1;
+  padding: 2.5rem;
+  background: var(--vps-card-bg);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  border: 1px solid rgba(139,92,246,0.2);
+  margin: 2rem;
+  box-shadow: var(--vps-shadow-md);
+}
+
+/* Header */
+.vps-admin-payments-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.vps-admin-payments-header h1 {
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  font-weight: 800;
+  background: var(--gradient-hero);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: ;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.vps-admin-payments-header p {
+  color: var(--vps-text-gray);
+  font-size: 1.2rem;
+}
+
+/* Stats Grid */
+.vps-admin-payments-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.vps-admin-payments-stat-card {
+  background: var(--vps-glass-bg);
+  backdrop-filter: blur(20px);
+  padding: 2.5rem 2rem;
+  border-radius: 24px;
+  border: 1px solid rgba(139,92,246,0.15);
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.vps-admin-payments-stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0;
+  background: var(--gradient-primary);
+  transition: width 0.5s ease;
+}
+
+.vps-admin-payments-stat-card:hover {
+  transform: translateY(-12px);
+  box-shadow: var(--vps-shadow-lg), var(--vps-glow-violet);
+}
+
+.vps-admin-payments-stat-card:hover::before {
+  width: 100%;
+}
+
+.vps-admin-payments-stat-icon {
+  font-size: 3rem;
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gradient-glass);
+  flex-shrink: 0;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.vps-admin-payments-stat-number {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  color: var(--vps-text-dark);
+  line-height: 1;
+}
+
+.vps-admin-payments-stat-label {
+  color: var(--vps-text-gray);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* Controls */
+.vps-admin-payments-controls {
+  margin-bottom: 2rem;
+}
+
+.vps-admin-payments-search {
+  padding: 1.2rem 1.5rem;
+  border: 2px solid rgba(139,92,246,0.2);
+  border-radius: 50px;
+  font-size: 1rem;
+  background: var(--vps-white);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 500px;
+}
+
+.vps-admin-payments-search:focus {
+  outline: none;
+  border-color: var(--vps-violet);
+  box-shadow: var(--vps-glow-violet);
+  transform: scale(1.02);
+}
+
+/* Table */
+.vps-admin-payments-table-container {
+  background: var(--vps-card-bg);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: var(--vps-shadow-md);
+  border: 1px solid rgba(139,92,246,0.15);
+}
+
+.vps-admin-payments-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.vps-admin-payments-table th {
+  background: var(--gradient-primary);
+  color: var(--vps-white);
+  padding: 1.5rem;
+  font-weight: 700;
+  text-align: left;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.vps-admin-payments-table td {
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(139,92,246,0.1);
+  color: var(--vps-text-dark);
+}
+
+.vps-admin-payments-table tr:hover {
+  background: rgba(139,92,246,0.05);
+}
+
+.vps-admin-payments-status-badge {
+  padding: 0.6rem 1.5rem;
+  border-radius: 25px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border: 1px solid;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.vps-admin-payments-status-paid {
+  background: rgba(34,197,94,0.2);
+  color: #22c55e;
+  border-color: rgba(34,197,94,0.3);
+  box-shadow: 0 4px 15px rgba(34,197,94,0.2);
+}
+
+.vps-admin-payments-status-pending {
+  background: rgba(250,204,21,0.2);
+  color: #d97706;
+  border-color: rgba(250,204,21,0.3);
+  box-shadow: 0 4px 15px rgba(250,204,21,0.2);
+}
+
+.vps-admin-payments-status-pending {
+  color: #d97706 !important;
+}
+
+.vps-admin-payments-status-badge:hover {
+  transform: scale(1.05);
+}
+
+/* Access Denied */
+.vps-admin-payments-access-denied {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, var(--vps-bg-primary), var(--vps-bg-light));
+}
+
+.vps-admin-access-denied-content {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: var(--vps-card-bg);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  border: 1px solid rgba(139,92,246,0.2);
+  box-shadow: var(--vps-shadow-lg);
+  max-width: 500px;
+  width: 100%;
+}
+
+.vps-admin-access-denied-title {
+  color: #ef4444;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.vps-admin-access-denied-text {
+  color: var(--vps-text-gray);
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.vps-admin-access-denied-btn {
+  padding: 1.2rem 2.5rem;
+  background: var(--gradient-primary);
+  border: none;
+  border-radius: 50px;
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.vps-admin-access-denied-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--vps-shadow-lg), var(--vps-glow-violet);
+}
+
+/* Loading/Empty */
+.vps-admin-payments-loading,
+.vps-admin-payments-empty {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--vps-text-gray);
+  font-size: 1.3rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .vps-admin-payments-main {
+    margin: 1rem;
+    padding: 2rem;
+  }
+  
+  .vps-admin-payments-header {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .vps-admin-payments-stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .vps-admin-payments-table {
+    font-size: 0.9rem;
+  }
+  
+  .vps-admin-payments-table th,
+  .vps-admin-payments-table td {
+    padding: 1rem 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .vps-admin-payments-stat-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+}
+
+/* Animations */
+.vps-admin-payments-stat-card {
+  animation: fadeInUp 0.8s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.vps-admin-payments-stat-card:nth-child(1) { animation-delay: 0.1s; }
+.vps-admin-payments-stat-card:nth-child(2) { animation-delay: 0.2s; }
+.vps-admin-payments-stat-card:nth-child(3) { animation-delay: 0.3s; }
+.vps-admin-payments-stat-card:nth-child(4) { animation-delay: 0.4s; }
